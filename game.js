@@ -39,3 +39,25 @@ let game = () => {
     console.log(winner);
     return winner;
 }
+
+let hScore = 0;
+let cScore = 0;
+for (let i = 0; i < 5; i++) {
+    let victor = game();
+
+    if (victor == "player") {
+        hScore++;
+    } else if (victor == "computer") {
+        cScore++;
+    }
+
+    console.log(`Player: ${hScore} | Computer: ${cScore}`)
+}
+
+if (hScore > cScore) {
+    console.log("Player Wins!");
+} else if (cScore > hScore) {
+    console.log("Computer Wins!");
+} else {
+    console.log("Tie!");
+}
