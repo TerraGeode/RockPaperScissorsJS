@@ -27,13 +27,15 @@ let winningHand = (cHand, hHand) => {
         return "player";
     }
 }
-//track winner
 
-//testy section
-let pChoice = playerChoose();
-let compChoice = computerChoose();
-let winner = winningHand(compChoice,pChoice);
-
-console.log(`Computer: ${compChoice}`);
-console.log(`Player: ${pChoice}`);
-console.log(winner);
+//play game
+let game = () {
+    let pChoice = playerChoose();
+    let compChoice = computerChoose();
+    let winner = winningHand(compChoice,pChoice);
+    
+    console.log(`Computer: ${compChoice}`);
+    console.log(`Player: ${pChoice}`);
+    console.log(winner);
+    return winner;
+}
