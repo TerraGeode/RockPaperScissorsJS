@@ -10,10 +10,10 @@ let playerChoose = () => {
 }
 //get computer choice
 let computerChoose = () => {
-    return Math.floor(Math.random()*3);
+    c = Math.floor(Math.random()*3);
+    return choices[c];
 }
 //compare choices
 //track winner
 
-pChoice = playerChoose();
-console.log(pChoice);
+console.log(computerChoose());
