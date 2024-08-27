@@ -1,13 +1,12 @@
 choices = ["rock", "paper", "scissors"]
 //get human choice
 let playerChoose = () => {
-    choise = prompt("rock, paper, scissors!");
+    choice = prompt("rock, paper, scissors!");
     choice = choice.toLowerCase();
-    if (choice == "rock" || choice == "paper" || choice == "scissors") {
-        return choice;
-    } else {
+    if (choice != "rock" && choice != "paper" && choice != "scissors") {
         choice = playerChoose();
     }
+    return choice;
 }
 //get computer choice
 let computerChoose = () => {
@@ -16,5 +15,5 @@ let computerChoose = () => {
 //compare choices
 //track winner
 
-cChoice = computerChoose();
-console.log(choices[cChoice]);
+pChoice = playerChoose();
+console.log(pChoice);
