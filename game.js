@@ -2,11 +2,14 @@ choices = ["Rock", "Paper", "Scissors"]
 //get human choice
 let playerChoose = () => {
     choice = parseInt(prompt("Rock (1), Paper(2), Scissors(3)!"));
-    return choice;
+    return choice -1;
 }
 //get computer choice
+let computerChoose = () => {
+    return Math.floor(Math.random()*3);
+}
 //compare choices
 //track winner
 
-hChoice = playerChoose();
-console.log(choices[hChoice-1]);
+cChoice = computerChoose();
+console.log(choices[cChoice]);
