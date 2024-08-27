@@ -1,8 +1,13 @@
-choices = ["Rock", "Paper", "Scissors"]
+choices = ["rock", "paper", "scissors"]
 //get human choice
 let playerChoose = () => {
-    choice = parseInt(prompt("Rock (1), Paper(2), Scissors(3)!"));
-    return choice -1;
+    choise = prompt("rock, paper, scissors!");
+    choice = choice.toLowerCase();
+    if (choice == "rock" || choice == "paper" || choice == "scissors") {
+        return choice;
+    } else {
+        choice = playerChoose();
+    }
 }
 //get computer choice
 let computerChoose = () => {
