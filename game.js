@@ -29,7 +29,7 @@ let winningHand = (cHand, hHand) => {
 }
 
 //play game
-let game = () {
+let game = () => {
     let pChoice = playerChoose();
     let compChoice = computerChoose();
     let winner = winningHand(compChoice,pChoice);
