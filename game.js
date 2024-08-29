@@ -42,6 +42,13 @@ let game = (pChoice) => {
 let boardUpdate = (win) => {
     pGameWinner.textContent = `Winner: ${win}`;
     pScore.textContent = `Player: ${hScore} Computer: ${cScore}`;
+    if (hScore == 5 || cScore == 5) {
+        if (hScore == 5) {
+            pVictor.textContent = `Player wins!`;
+        } else {
+            pVictor.textContent = `Computer wins!`;
+        }
+    }
 }
 
 const btnRock = document.getElementById("rock");
