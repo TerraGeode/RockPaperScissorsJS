@@ -2,15 +2,10 @@ let hands = ["rock", "paper", "scissors"];
 let hScore = 0;
 let cScore = 0;
 
-//get human choice
-let playerChoose = () => {
-    let choice = prompt("rock, paper, scissors!");
-    choice = choice.toLowerCase();
-    if (choice != "rock" && choice != "paper" && choice != "scissors") {
-        choice = playerChoose();
-    }
-    return choice;
-}
+const pGameWinner = document.getElementById("winner");
+const pScore = document.getElementById("score");
+const pVictor = document.getElementById("victor");
+
 //get computer choice
 let computerChoose = () => {
     c = Math.floor(Math.random()*3);
@@ -25,8 +20,10 @@ let winningHand = (cHand, hHand) => {
         (cHand == hands[1] && hHand == hands[0]) ||
         (cHand == hands[2] && hHand == hands[1])
     ) {
+        cScore++;
         return "computer"
     } else {
+        hScore++;
         return "player";
     }
 }
@@ -42,24 +39,24 @@ let game = (pChoice) => {
     return winner;
 }
 
+let boardUpdate = (win) => {
+    pGameWinner.textContent = `Winner: ${win}`;
+    pScore.textContent = `Player: ${hScore} Computer: ${cScore}`;
+}
+
 const btnRock = document.getElementById("rock");
 const btnPaper = document.getElementById("paper");
 const btnScissors = document.getElementById("scissors");
 
 btnRock.addEventListener("click", () => {
-    game("rock");
+    let w = game("rock");
+    boardUpdate(w);
 });
 btnPaper.addEventListener("click", () => {
-    game("paper");
+    let w = game("paper");
+    boardUpdate(w);
 });
 btnScissors.addEventListener("click", () => {
-    game("scissors");
+    let w = game("scissors");
+    boardUpdate(w);
 });
-
-if (hScore > cScore) {
-    console.log("Player Wins!");
-} else if (cScore > hScore) {
-    console.log("Computer Wins!");
-} else {
-    console.log("Tie!");
-}
