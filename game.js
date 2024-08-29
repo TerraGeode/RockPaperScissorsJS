@@ -1,4 +1,7 @@
-let hands = ["rock", "paper", "scissors"]
+let hands = ["rock", "paper", "scissors"];
+let hScore = 0;
+let cScore = 0;
+
 //get human choice
 let playerChoose = () => {
     let choice = prompt("rock, paper, scissors!");
@@ -29,8 +32,7 @@ let winningHand = (cHand, hHand) => {
 }
 
 //play game
-let game = () => {
-    let pChoice = playerChoose();
+let game = (pChoice) => {
     let compChoice = computerChoose();
     let winner = winningHand(compChoice,pChoice);
     
@@ -40,19 +42,19 @@ let game = () => {
     return winner;
 }
 
-let hScore = 0;
-let cScore = 0;
-for (let i = 0; i < 5; i++) {
-    let victor = game();
+const btnRock = document.getElementById("rock");
+const btnPaper = document.getElementById("paper");
+const btnScissors = document.getElementById("scissors");
 
-    if (victor == "player") {
-        hScore++;
-    } else if (victor == "computer") {
-        cScore++;
-    }
-
-    console.log(`Player: ${hScore} | Computer: ${cScore}`)
-}
+btnRock.addEventListener("click", () => {
+    game("rock");
+});
+btnPaper.addEventListener("click", () => {
+    game("paper");
+});
+btnScissors.addEventListener("click", () => {
+    game("scissors");
+});
 
 if (hScore > cScore) {
     console.log("Player Wins!");
